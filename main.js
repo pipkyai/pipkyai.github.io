@@ -49,34 +49,34 @@ $(document).ready(function(){
       $("input[type='radio']:checked").each(function() {
          var idVal = $(this).attr("id");
          if (idVal === "manager2"){
-            $(".photo").attr("src", "images/Andrew.png");
+            $(".photo").attr("src", "docs/assets/Andrew.png");  
             $(".phone1").text('+7 (925) 286-40-80');
             $(".email").text("a.golovin@shelby-ltd.ru");
             $(".managerName").text("Андрей Головин");
          } else if (idVal === "manager3"){
-            $(".photo").attr("src", "images/Diman.png");
+            $(".photo").attr("src", "docs/assets/Diman.png");
             $(".phone1").text('+7 (925) 480-91-38');           
             $(".email").text("d.francuzov@shelby-ltd.ru");
             $(".managerName").text("Дмитрий Французов");
          } else if (idVal === "manager4"){
-            $(".photo").attr("src", "images/Nata.png");
+            $(".photo").attr("src", "docs/assets/Nata.png");
             $(".phone1").text('+7 (925) 283-59-00');           
             $(".email").text("n.barsegyan@shelby-ltd.ru");
             $(".managerName").text("Наталья Барсегян");
          } else if (idVal === "manager1"){
-            $(".photo").attr("src", "images/Sanek.jpeg");
+            $(".photo").attr("src", "docs/assets/Sanek.jpeg");
             $(".phone1").text('+7 (937) 086-77-79');           
             $(".email").text("a.tkachenko@shelby-ltd.ru");
             $(".managerName").text("Александр Ткаченко");
          }  else if (idVal === "manager5"){
             $(".job").text('Cпециалист отдела продаж');
-            $(".photo").attr("src", "images/gosha.png");
+            $(".photo").attr("src", "docs/assets/gosha.png");
             $(".phone1").text('+7 (925) 296-49-97');           
             $(".email").text("g.filonov@shelby-ltd.ru");
             $(".managerName").text("Георгий Филонов");
          }  else if (idVal === "manager6"){
             $(".job").text('Ведущий специалист отдела продаж');
-            $(".photo").attr("src", "images/Ramil.jpeg");
+            $(".photo").attr("src", "docs/assets/Ramil.jpeg");
             $(".phone1").text('+7 (925) 296-76-72');           
             $(".email").text("r.zaripov@shelby-ltd.ru");
             $(".managerName").text("Рамиль Зарипов");
