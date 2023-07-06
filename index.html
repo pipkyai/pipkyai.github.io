@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Шелби каталог</title>
+    <link rel="shortcut icon" href="https://static.tildacdn.com/tild6236-6432-4233-a230-303433616165/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+    <script src="main.js"></script>
+    <script src="ajax.js"></script>
+    
+</head>
+<body>
+    <div class="content">
+        <div class="header">
+            <div class="corner" style="right: 0%; top: 0%; width: 120px; height: 220px; background-color: #fee100; border-bottom-left-radius: 150px;  position: absolute;"></div>
+            <div class="logo" style="display: inline-block; width: 18% ; padding-top: 30px;">
+                <img src="https://static.tildacdn.com/tild6566-3735-4435-b130-346231653861/logo-13.png" width="100%">
+            </div>
+            <div class="slogan" style="display: inline-block; width: 28%; position: relative; top: -8px; left: 100px;">
+                <p style="font-weight: bold; width: 200px; font-size: 14px;">Пожалуй, лучшие детские игровые пространства</p>
+            </div>
+            <div class="dots" style="padding-top: 12px; right: 20px; height: 100px;">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        <div class="bodybody">
+            <div style="padding-top: 30px;">
+                <p style="font-weight: bold; font-size: 20px; padding-left: 5px;">Коммерческое предложение</p>
+                <p class="office">ООО "Шелби Плей"</p>
+                <p class="office">129626, г. Москва, Проспект Мира, 102к1, БЦ Парк Мира, офис 306</p>
+                <p class="office">ИНН: 5003143285 КПП: 500301001 ОГРН: 1215000013205</p>
+                <p style="border-bottom: 0.01rem solid #000403;"></p>
+                <p class="office">Номер №<span class="order buttonText">5512</span><button class="addNumber hideButtons">ред</button></p> 
+                <p class="office">Дата: <span class="date buttonText">24.01.2023</span><button class="addDate hideButtons">ред</button></p>
+                <p class="office">Предложение на поставку МАФ по объекту: <span class="customer buttonText">Заказчик</span><button class="addCustomer hideButtons">ред</button></p>
+            </div>
+            <table id="catalog" class="content-table" style="width: 100%;">
+                <thead class="tabhead" style="text-align: center; height: 50px; font-size: 12px;">
+                    <tr>
+                        <th>№ П/П</th>
+                        <th>Изображение</th>
+                        <th>Артикул</th>
+                        <th>Название</th>
+                        <th>Размер, мм</th>
+                        <th>Кол-во</th>
+                        <th>Ед. изм.</th>
+                        <th>Цена, руб</th>
+                        <th>Итого, руб</th>
+                        <th>Себестоимость, руб</th>
+                        <th>Итого себестоимость, руб</th>
+                        <th>Наценка, руб</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="firstRow" style="display: none;" class="deleteRow"></tr>
+                </tbody>
+            </table>
+            <div class="blocks">
+                <div class="block0" style="right: -83.68%; position:relative; padding-top: 5px;">
+                    <label for="superMarginal">Общая наценка</label>
+                    <input type="number" name="superMarginal" class="superMarginal" step="0.1" min="0.00" max="3.00" value="1.8">
+                </div>
+                <div class="block1">
+                    <p class="footing">Стоимость оборудования c НДС (20%): <span class="money"><span class="totalContract">0</span> рублей. </span></p>
+                    <p class="targetMontBottom footing" style="visibility: visible;">Монтаж оборудования: <input type="number" class="block0 montageMargin" step="0.01" min="0" max="1.00" value="0.2"><span class="money"><span class="montage">0</span> рублей. </span></p>
+                    <p class="footing">Доставка оборудования: <input type="number" class="deliveryMargin block0" step="0.01" min="0.00" max="1.00" value="0.05"><span class="money"><span class="delivery">0</span> рублей. </span></p>
+                    <p class="footing moneyWithoutDiscount" style="background-color: #fee100;">Итого с НДС (20%): <span class="money"><span class="sum">0</span> рублей. </span></p>
+                    <p class="targetDiscBottom footing" style="background-color: #fee100; visibility: hidden; font-weight: bold;">Итого, со скидкой: <input type="number" class="discountMargin block0" step="1" min="1" max="25" value="5"><span class="block0">%</span><span class="money"><span class="sumWithDiscount">0</span> рублей. </span></p>
+                    <p>Данное коммерческое предложение действительно <span class="customer buttonText">25</span><button class="addCustomer hideButtons">ред</button> календарных дней. </p>
+
+                </div>
+                <div class="block2">
+                    <p class="footing">Себестоимость оборудования: <span class="money"><span class="totalSelf">0</span> рублей. </span></p>
+                    <p class="footing">Прибыль: <span class="money"><span class="profit">0</span> рублей. </span></p>
+                    <p class="marginLvlColor footing" >Маржинальность контракта: <span class="money"><span class="marginLvl"></span> %</p>
+                    <p class="attention footing"></p>
+                </div>
+                <div class="absoluteText">Скрыть себестоимость</div>
+            </div>
+        </div>
+            <div id="searchBar" style="width:100%; height: 100px; visibility: visible; padding-top: 3px; display: inline-block;" >
+                <div style="display: inline-block; width: 65%;">
+                    <input type="text" name="searchArt" id="searchArt" placeholder="Поиск МАФов" class="form-control" style="width: 80%;"/>
+                    <button class="addArt" style="width: 15%;">Добавить МАФ</button>
+                </div>
+                <div style="display: inline-block;">
+                    <input type="checkbox" id="isMontage" name="isMontage" checked>
+                    <label for="isMontage">Монтаж</label>
+                    <!-- <input type="checkbox" id="isTerms" name="isTerms">
+                    <label for="isTerms">Условия</label> -->
+                    <input type="checkbox" id="isDiscount" name="isDiscount">
+                    <label for="isDiscount">Скидка</label>
+                </div>
+                <ul class="list-group" id="result" style="list-style-type: none; padding-left: 0"></ul>
+            </div>
+        </div>
+    </div>   
+</body>
+<footer>
+    <div style="width: 100%;">
+        <div style="display: inline-block; width: 35%; position: relative; left: -7px; bottom: 0px;">
+            <p class="office">С наилучшими пожеланиями, </p>
+            <p class="office job">Ведущий специалист по работе с клиентами</p>
+            <p class="office managerName">Александр Ткаченко</p>
+            <p class="office phone1">+7 (937) 555-02-53</p>
+            <p class="office">+7 (499) 390-50-07</p>
+            <p class="office email">a.tkachenko@shelby-ltd.ru</p>
+        </div>
+        <div class="block3" id="sanek" style="height: 200px; display: inline-block; top: 20px; left: 320px; width: auto; position: relative;">
+            <div class='btm_btn' id="hideDivWithButtons">
+                <input type="radio" class="manager" name="manager" id="manager1" checked>
+                <label for="manager1">Александр</label>
+                <input type="radio" class="manager" name="manager" id="manager2">
+                <label for="manager2">Андрей</label>
+                <input type="radio" class="manager" name="manager" id="manager3">
+                <label for="manager3">Дмитрий</label>
+                <input type="radio" class="manager" name="manager" id="manager4">
+                <label for="manager4">Наталья</label>
+                <input type="radio" class="manager" name="manager" id="manager5">
+                <label for="manager5">Георгий</label>
+                <input type="radio" class="manager" name="manager" id="manager6">
+                <label for="manager6">Рамиль</label>
+                <!-- <button class="checkjson" style="width: 165px;">Выгрузить базу данных</button>
+                <input type="file" id="file_upload" />
+                <button onclick="upload()">Отобразить</button> -->
+            </div>
+            <p><img src="images/Sanek.jpeg" alt="" class="photo" id="photo"></p>
+        </div>
+    </div>
+</footer>
+<!-- <div class="terms" style="page-break-before: always; padding-top: 30px; display: none;">
+    <div>
+        <br>Срок коммерческого предлоджения составляет: <span class="expirationDays buttonText">7</span><button class="setDays hideButtons">ред</button> дней, действует до <span class="expirationDate buttonText">24.01.2023</span><button class="setDate hideButtons">ред</button></br>
+        <br>Условия оплаты поставки:</br>
+        <br>1. Первый платеж составляет  <span class="firstPayment buttonText">70</span><button class="setFirstPayment hideButtons">ред</button>% от стоимости оборудования при размещении заказа.</br>
+        <br>2. Второй платеж составляет  <span class="secondPayment buttonText">30</span><button class="setSecondPayment hideButtons">ред</button>% от стоимости оборудования после уведомления о готовности к отгрузке.</br>
+        <p style="border-bottom: 0.01rem solid #000403;"></p>
+        <br>Срок поставки оборудования: <span class="deliveryDays buttonText">50</span><button class="setDeliveryDays hideButtons">ред</button> рабочих дней с даты получения первого платежа.</br>
+        <br>Монтаж оборудования производится на подготовленную в соответсвтии с Техническими Условиями поверхность. Базовая стоимость оборудования и монтажа включает установку опор на горизонтальную поверхность - грунт, на глубину 700 мм методом их бетонирования.</br>
+        <br>Срок поставки оборудования не включает в себя срок монтажа оборудования.</br>
+        <p style="border-bottom: 0.01rem solid #000403;"></p>
+        <br>В производстве игровых элементов мы используем следующие материалы;</br>
+        <br>1. HPL и HDPE панели.</br>
+        <br>2. Полипропиленовые канаты со стальным сердечником, диаметром от 16 мм.</br>
+        <br>3. Оцинкованная и нержавеющая сталь.</br>
+        <br>4. Молдинги из литого полиамида.</br>
+        <br>5. Твердые и эстетичные канатные соединители из литого полиамида и алюминия.</br>
+        <br>6. Деревянные элементы из Робинии, обработанные для Российских условий.</br>
+    </div>
+</div> -->
+</html>
